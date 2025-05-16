@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyeux Anniversaire Tonton Achour</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #ffe6e6, #e6f2ff);
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        h1 {
+            font-size: 3em;
+            color: #ff3366;
+            animation: bounce 1s infinite;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        .gift-button {
+            margin-top: 40px;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #33cc99;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .gift-button:hover {
+            background-color: #28a87b;
+        }
+        .balloons {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .balloon {
+            width: 60px;
+            height: 80px;
+            background-color: #ffcc00;
+            border-radius: 50% 50% 50% 50%;
+            position: absolute;
+            animation: float 6s infinite ease-in-out;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <h1>🎉 عيد ميلاد سعيد Tonton Achour 🎉</h1>
+    <div class="message">
+        <p><strong>🇫🇷 Français :</strong><br>
+        Joyeux anniversaire mon cher tonton. Je te souhaite une longue et heureuse vie avec tous ceux que tu aimes. Ce cadeau est de ma part et de la part de ma famille pour toi. On t’aime énormément et on a hâte de te voir bientôt ! 🎁❤️</p>
+
+        <p><strong>🇬🇧 English:</strong><br>
+        Happy birthday my dear uncle. I wish you a long and happy life with everyone you love. This gift is from me and my family to you. We love you very much and can't wait to see you soon! 🎁❤️</p>
+
+        <p><strong>🇩🇿 العربية:</strong><br>
+        عيد ميلاد سعيد خالي العزيز. أتمنى لك عمراً طويلاً وسعيداً مع كل من تحب. هذه الهدية مني ومن عائلتي إليك. نحبك كثيراً ونتشوق لرؤيتك قريباً! 🎁❤️</p>
+    </div>
+
+    <button class="gift-button" onclick="showGift()">🎁 افتح هديتك / Open Your Gift</button>
+
+    <div id="gift-content" class="message" style="display:none; margin-top: 30px;">
+        <p>🎁 Surprise! Your virtual gift is a life-time subscription to... my love and respect! 😄❤️<br>
+        And here's a secret birthday poem just for you:</p>
+        <pre style="background: #f9f9f9; padding: 10px; border-radius: 10px;">
+        🎂 Tonton Achour, great and wise,
+        You deserve Swiss cakes and sunny skies.
+        May laughter follow where you go,
+        And joy in your heart always glow. 💖
+        </pre>
+    </div>
+
+    <div class="balloons">
+        <!-- Generate 10 floating balloons -->
+        <script>
+            for (let i = 0; i < 10; i++) {
+                const b = document.createElement('div');
+                b.className = 'balloon';
+                b.style.left = Math.random() * 100 + 'vw';
+                b.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+                b.style.animationDuration = (4 + Math.random() * 3) + 's';
+                document.querySelector('.balloons').appendChild(b);
+            }
+        </script>
+    </div>
+
+    <script>
+        function showGift() {
+            document.getElementById("gift-content").style.display = "block";
+        }
+    </script>
+</body>
+</html>
